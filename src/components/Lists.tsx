@@ -30,7 +30,7 @@ const Lists: FC = () => {
 					Object.keys(lists).length === 0
 						? <p className="py-4 has-text-centered">No Lists</p>
 						: Object.values(lists).map((list: List) => {
-							return <div className="panel-block py-3" key={list.id}>
+							return <div className="panel-block py-3" key={list.id} style={{ justifyContent: 'space-between' }}>
 								<p onClick={() => setListToEditHandler(list.id)}>{list.name}</p>
 								<span className="panel-icon has-text-danger" onClick={() => setListIdToDeleteHandler(list.id)}>
 									<i className="fas fa-times-circle"></i>
