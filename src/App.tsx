@@ -11,12 +11,14 @@ import { RootState } from './store/store'
 import EditListModal from './components/EditListModal'
 import MainContent from './components/MainContent'
 import EditTaskModal from './components/EditTaskModal'
+import DeleteTaskModal from './components/DeleteTaskModal'
 
 const App: FC = () => {
 	const NotificationMsg = useSelector((state: RootState) => state.notification.message)
 	const listIdToDelete = useSelector((state: RootState) => state.list.listIdToDelete)
 	const listToEdit = useSelector((state: RootState) => state.list.listToEdit)
 	const taskToEdit = useSelector((state: RootState) => state.list.taskToEdit)
+	const deleteTask = useSelector((state: RootState) => state.list.taskToDelete)
 
 	return (
 		<div className='App'>
@@ -31,6 +33,7 @@ const App: FC = () => {
 			{listIdToDelete && <DeleteListModal listId={listIdToDelete} />}
 			{listToEdit && <EditListModal list={listToEdit} />}
 			{taskToEdit && <EditTaskModal taskToEdit={taskToEdit} />}
+			{deleteTask && <DeleteTaskModal taskToDelete={deleteTask} />}
 		</div>
 	)
 }
